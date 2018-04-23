@@ -1,0 +1,82 @@
+
+{% load i18n %}
+{% load static %}
+
+<div id="signup_modal" class="modal hide fade" role="dialog" aria-hidden="true" data-signup_url="{% url "signup" %}">
+<form id="signup_form" class="form" method="post">{% csrf_token %}
+<div class="modal-dialog">
+<div class="modal-content">
+	
+	<div class="modal-header">
+
+		<h5 class="modal-title">{% trans "Register" %}</h5>
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+
+	</div>
+
+    <div class="modal-body">
+	<div class="form-group">
+
+		<label for="signup_login" class="col-form-label">{% trans "Login" %}</label>
+		<input id="signup_login" type="text" class="form-control" placeholder="Login" required autofocus>
+		<small class="form-text text-muted">{% trans "Beautiful username." %}</small>
+			
+		<label for="signup_email" class="col-form-label">{% trans "E-mail" %}</label>
+		<input id="signup_email" type="email" class="form-control" placeholder="E-mail" required>
+		<small class="form-text text-muted">{% trans "We'll never share your email with anyone else." %}</small>
+
+		<label for="signup_password" class="col-form-label">{% trans "Password" %}</label>
+		<input id="signup_password" type="password" class="form-control" name="password" placeholder="Password" required>
+		<small class="form-text text-muted">{% trans "Strong password." %}</small>
+
+		<div class="invalid-feedback" id="signup_error_message"></div>
+
+	</div>
+    </div>
+    
+	<div class="modal-footer">
+		
+		<button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans "Close" %}</button>
+		<button id="signup_submit" type="button" class="btn btn-primary">{% trans "Sign up" %} </button>
+
+    </div>
+
+</div>
+
+<div id="signup_success_modal" class="modal hide fade" role="dialog" aria-hidden="true" data-success_signup_url="{% url "home" %}">
+<div class="modal-dialog">
+<div class="modal-content">
+	
+	<div class="modal-header">
+
+		<h5 class="modal-title">{% trans "Success on registraion" %}</h5>
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+
+	</div>
+
+    <div class="modal-body">
+	<div class="form-group">
+
+		<label class="col-form-label">{% trans "Checkout you e-mail and confirm the registration" %}</label>
+
+	</div>
+    </div>
+    
+	<div class="modal-footer">
+		
+		<button id="signup_success_close" type="button" class="btn btn-secondary" data-dismiss="modal">{% trans "Close" %}</button>
+
+    </div>
+
+</div>
+
+<script src="{% static "js/signup_modal.js" %}"></script>
+
+</div>
+</form>
+</div>
+

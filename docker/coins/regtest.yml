@@ -1,0 +1,26 @@
+
+version: '2'
+
+services:
+
+    bitcoin:
+
+        image: kylemanna/bitcoind
+        ports:
+            - 18332:18332
+        command: bitcoind -regtest -server -rpcbind=0.0.0.0 -rpcallowip=172.0.0.0/8 -rpcuser=test -rpcpassword=test -rpcport=18332
+
+    litecoin:
+
+        image: uphold/litecoind
+        ports:
+            - 19332:19332
+        command: litecoind -regtest -server -rpcbind=0.0.0.0 -rpcallowip=172.0.0.0/8 -rpcuser=test -rpcpassword=test -rpcport=19332
+
+    dash:
+
+        image: dashpay/dashd
+        ports:
+            - 19994:19994
+        command: dashd -regtest -server -rpcbind=0.0.0.0 -rpcallowip=172.0.0.0/8 -rpcuser=test -rpcpassword=test -rpcport=19994
+

@@ -1,0 +1,10 @@
+trash
+*swp
+__pycache__
+*json
+celerybeat-schedule
+*sqlite*
+migrations
+celeryd.pid
+*.vim
+test

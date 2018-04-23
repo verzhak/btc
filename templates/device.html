@@ -1,0 +1,23 @@
+
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}{% trans "Devices" %}: {{ request.user.username }}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+	<h1>{% trans "Available devices" %}</h1>
+
+	<div id="device_list" data-device_url="{% url "device_list" %}"></div>
+	
+</div>
+
+<script src="{% static "js/device.js" %}"></script>
+
+{% endblock %}
+

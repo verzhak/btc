@@ -1,0 +1,104 @@
+
+{% load i18n %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+						integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+			integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+			integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>	
+	<script src="{% static "js/lib.js" %}"></script>
+
+<style>
+body { padding-top: 70px; }
+</style>
+
+	<title>{% block title %}{% trans "CryptoMoneys" %}{% endblock %}</title>
+
+</head>
+
+<body>
+
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+	<a class="navbar-brand" href="{% url "home" %}"><img src="{% static "img/logo.svg" %}" style="width: 12%"> {% trans "CryptoMoneys" %}</a>
+
+	<ul class="navbar-nav mr-auto">
+	{% if user.is_authenticated %}
+				
+		<li class="nav-item dropdown">
+					
+			<a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				{% trans "My account" %}
+			</a>
+
+			<div class="dropdown-menu">
+				<a class="dropdown-item" href="{% url "auth_password_change" %}" role="button">
+					{% trans "Change password" %}
+				</a>
+			</div>
+
+		</li>
+
+	{% endif %}
+	</ul>
+
+	{% if user.is_authenticated %}
+
+	<form action="{% url "auth_logout" %}">
+		<button class="btn btn-outline-success" type="submit">{% trans "Log out" %}</button>
+	</form>
+
+	{% else %}
+
+	<form>
+		<button type="button" class="btn btn-success" data-toggle="modal" data-target="#signin_modal">{% trans "Sign in" %}</button>
+		<button type="button" class="btn btn-success" data-toggle="modal" data-target="#signup_modal">{% trans "Sign up" %}</button>
+	</form>
+
+	{% endif %}
+
+</nav>
+
+<div class="container-fluid">
+<div class="row">
+
+	<nav class="sidebar col-sm-3 col-md-2 hidden-xs-down bg-faded ">
+	<ul class="nav nav-pills flex-column">
+	{% if user.is_authenticated %}
+
+		<li class="nav-item"><a id="wallet_nav" class="nav-link" href="{% url "wallet" %}">{% trans "Wallet" %}</a></li>	
+		<li class="nav-item"><a id="exchange_nav" class="nav-link" href="{% url "exchange" %}">{% trans "Exchange" %}</a></li>
+		<li class="nav-item"><a id="pool_nav" class="nav-link" href="{% url "pool" %}">{% trans "Pool" %}</a></li>
+		<li class="nav-item"><a id="device_nav" class="nav-link" href="{% url "device" %}">{% trans "Devices" %}</a></li>
+
+	{% else %}
+
+		<li class="nav-item"><a class="nav-link active" href="{% url "home" %}"><img src="{% static "img/logo.svg" %}" style="width: 12%"> {% trans "CryptoMoneys" %}</a></li>
+
+	{% endif %}
+	</ul>
+    </nav>
+	
+	<main id="content" role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">{% block content %}{% endblock %}</main>
+
+</div>
+</div>
+
+{% include "signin_modal.html" %}
+{% include "signup_modal.html" %}
+
+</body>
+</html>
+

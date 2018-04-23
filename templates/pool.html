@@ -1,0 +1,103 @@
+
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Pools" %}: {{ request.user.username }}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+	<h1>{% trans "Available pools" %}</h1>
+
+	<div class="table-responsive">
+	<table class="table table-striped">
+
+		<thead><tr>
+			<th>{% trans "Label" %}</th>
+			<th>{% trans "Program" %}</th>
+			<th>{% trans "Host" %}</th>
+			<th>{% trans "Login" %}</th>
+			<th>{% trans "Password" %}</th>
+			<th>{% trans "Args" %}</th>
+		</tr></thead>
+
+		<tbody>
+		{% for pool in object_list %}
+		<tr>
+			<td>{{ pool.label }}</td>
+			<td>{{ pool.program }}</td>
+			<td>{{ pool.host }}</td>
+			{% if pool.is_login_need_suffix %}
+
+			<td>{{ request.user.username }}</td>
+			<td>{% trans "DEVICE_NAME" %}</td>
+
+			{% else %}
+
+			<td>{{ pool.login }}</td>
+			<td>{{ pool.password }}</td>
+
+			{% endif %}
+			<td>{{ pool.args }}</td>
+		</tr>
+		{% endfor %}
+		</tbody>
+
+	</table>
+	</div>
+
+	<h1>{% trans "Statistic" %}</h1>
+
+	<div class="table-responsive">
+	<table class="table table-striped">
+
+		<thead><tr>
+			<td>{% trans "Currency" %}</th>
+			<td>{% trans "Device" %}</th>
+			<td>{% trans "Last10m" %}</th>
+			<!--<td>{% trans "Last30m" %}</th>-->
+			<td>{% trans "Last1h" %}</th>
+			<td>{% trans "Last1d" %}</th>
+			<td>{% trans "Prev10m" %}</th>
+			<td>{% trans "Prev30m" %}</th>
+			<td>{% trans "Prev1h" %}</th>
+			<td>{% trans "Prev1d" %}</th>
+			<td>{% trans "Accepted" %}</th>
+			<td>{% trans "Stale" %}</th>
+			<td>{% trans "Dupelicate" %}</th>
+			<td>{% trans "Other" %}</th>
+		</tr></thead>
+
+		<tbody>
+		{% for worker in stat %}
+		<tr>
+			<td>{{ worker.ticker }}</td>
+			<td>{{ worker.device }}</td>
+			<td>{{ worker.last10m }}</td>
+			<!--<td>{{ worker.last30m }}</td>-->
+			<td>{{ worker.last1h }}</td>
+			<td>{{ worker.last1d }}</td>
+			<td>{{ worker.prev10m }}</td>
+			<td>{{ worker.prev30m }}</td>
+			<td>{{ worker.prev1h }}</td>
+			<td>{{ worker.prev1d }}</td>
+			<td>{{ worker.accepted }}</td>
+			<td>{{ worker.stale }}</td>
+			<td>{{ worker.dupelicate }}</td>
+			<td>{{ worker.other }}</td>
+		</tr>
+		{% endfor %}
+		</tbody>
+
+	</table>
+	</div>
+	
+</div>
+
+<script src="{% static "js/pool.js" %}"></script>
+
+{% endblock %}
+

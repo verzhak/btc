@@ -1,0 +1,50 @@
+
+{% load i18n %}
+{% load static %}
+{% load humanize %}
+
+<form class="form" method="post">{% csrf_token %}
+<table class="table table-responsive table-striped text-center">
+
+<thead><tr>
+	<th>{% trans "Label" %}</th>
+	<th>{% trans "Description" %}</th>
+	<th>{% trans "Part index" %}</th>
+	<th>{% trans "Number of parts" %}</th>
+	<th>{% trans "Indicative earnings (month)" %}</th>
+	<th>{% trans "Price (month)" %}</th>
+	<th>{% trans "(Un)Subscribe" %}</th>
+</tr></thead>
+
+<tbody>
+{% for device in object_list %}
+<tr>
+	<th>{{ device.label }}</th>
+	<th>{{ device.desc }}</th>
+	<th style="width:5%">{{ device.part_ind }}</th>
+	<th style="width:5%">{{ device.parts }}</th>
+	<th style="width:5%">{{ device.earning|floatformat:8|intcomma }}</th>
+	<th style="width:5%">{{ device.price|floatformat:8|intcomma }}</th>
+	<th style="width:30%">
+	{% if device.user %}
+		{% if device.is_confirm %}
+			<button type="button" class="btn btn-danger btn-block unsubscribe" data-device_toggle_url="{% url "device_toggle" device.pk %}">
+				{% trans "Unsubscribe" %}</button>
+		{% else %}
+			<button type="button" class="btn btn-warning btn-block unsubscribe" data-device_toggle_url="{% url "device_toggle" device.pk %}">
+				{% trans "Unsubscribe (not confirm)" %}</button>
+		{% endif %}
+	{% else %}
+		<button type="button" class="btn btn-success btn-block subscribe" data-device_toggle_url="{% url "device_toggle" device.pk %}">
+			{% trans "Subscribe" %}</button>
+	{% endif %}
+	</th>
+</tr>
+{% endfor %}
+</tbody>
+
+</table>
+</form>
+
+<script src="{% static "js/device_list.js" %}"></script>
+

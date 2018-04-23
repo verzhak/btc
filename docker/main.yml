@@ -1,0 +1,38 @@
+
+version: '2'
+
+services:
+
+    web:
+
+        build: .
+        image: verzhak/crypto_currencies_server
+        working_dir: /cc
+        command: python3 manage.py runserver 0.0.0.0:80
+        volumes:
+            - ../:/cc
+        ports:
+            - 80:80
+        entrypoint: /init.sh
+        depends_on:
+            - db
+            - rabbit
+
+    db:
+
+        image: postgres:10.1
+        environment:
+            - POSTGRES_DB=cc
+            - POSTGRES_USER=cc
+            - POSTGRES_PASSWORD=cc
+        
+    rabbit:
+
+        image: rabbitmq:3.6.14
+        ports:
+            - 5673:5672
+            - 15673:15672
+        environment:
+            - RABBITMQ_DEFAULT_USER=cc
+            - RABBITMQ_DEFAULT_PASS=cc
+

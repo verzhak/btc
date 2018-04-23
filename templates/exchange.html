@@ -1,0 +1,55 @@
+
+{% extends "base.html" %}
+
+{% load humanize %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Exchanges" %}: {{ request.user.username }}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+		
+	<h1>{% trans "Exchanges" %}</h1>
+
+	<table class="table table-striped table-responsive text-center">
+	<col width="350">
+		
+		<thead><tr>
+			<th>{% trans "Label" %}</th>
+			<th>{% trans "Currency from" %}</th>
+			<th>{% trans "Currency to" %}</th>
+			<th>{% trans "Rate" %}</th>
+			<th>{% trans "Fee" %}</th>
+		</tr></thead>
+
+		<tbody>
+		{% for exchange in object_list %}
+		<tr>
+			<td>
+			<button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#exchange_modal"
+					data-exchange_id="{{ exchange.id }}"
+					data-exchange_label="{{ exchange.label }}"
+					data-exchange_success_url="{% url "exchange" %}"
+					data-exchange_url="{% url "exchange_modal" exchange.id %}">
+				{{ exchange.label }}
+			</button>
+			{{ exchange.balance_from }} {{exchange.ticker_from }} -> {{ exchange.balance_to }} {{exchange.ticker_to }}
+			</td>
+			<td>{{ exchange.currency_from }}</td>
+			<td>{{ exchange.currency_to }}</td>
+			<td>{{ exchange.coef|floatformat:8|intcomma }}</td>
+			<td>{{ exchange.fee|floatformat:8|intcomma }}</td>
+		</tr>
+		{% endfor %}
+		</tbody>
+
+</table>
+
+{% include "exchange_modal.html" %}
+
+<script src="{% static "js/exchange.js" %}"></script>
+
+{% endblock %}
+

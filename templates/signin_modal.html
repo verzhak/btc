@@ -1,0 +1,47 @@
+
+{% load i18n %}
+{% load static %}
+
+<div id="signin_modal" class="modal hide fade" role="dialog" aria-hidden="true" data-signin_url="{% url "signin" %}" data-success_signin_url="{% url "home" %}">
+<form id="signin_form" class="form" method="post">{% csrf_token %}
+<div class="modal-dialog">
+<div class="modal-content">
+	
+	<div class="modal-header">
+
+		<h5 class="modal-title">{% trans "Authorization" %}</h5>
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+
+	</div>
+
+    <div class="modal-body">
+	<div class="form-group">
+
+		<label for="signin_login" class="col-form-label">{% trans "Login" %}</label>
+		<input id="signin_login" type="text" class="form-control" placeholder="Login" required autofocus>
+			
+		<label for="signin_password" class="col-form-label">{% trans "Password" %}</label>
+		<input id="signin_password" type="password" class="form-control" name="password" placeholder="Password" required>
+
+		<div class="invalid-feedback" id="signin_error_message"></div>
+
+	</div>
+    </div>
+    
+	<div class="modal-footer">
+
+		<button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans "Close" %}</button>
+		<button id="signin_submit" type="button" class="btn btn-primary">{% trans "Sign in" %} </button>
+
+    </div>
+
+</div>
+
+<script src="{% static "js/signin_modal.js" %}"></script>
+
+</div>
+</form>
+</div>
+

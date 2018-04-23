@@ -1,0 +1,98 @@
+
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}{{ request.user.username }}: {{ label }}{% endblock %}
+
+{% block content %}
+
+<div class="jumbotron jumbotron-fluid">
+<div class="container">
+<div class="row">
+<div class="col-md-auto">
+	
+	<img class="img-fluid" src="{% static "img/"|add:ticker|add:".svg" %}" style="max-width:200px">
+
+</div>
+<div class="col-md-auto">
+
+	<h1 class="display-3">{{ label }}</h1>
+	<p><b>{% trans "Balance" %}:<b> {{ balance }} {{ ticker }}</p>
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#send_modal"
+			data-send_label="{{ label }}"
+			data-send_success_url="{% url "account" label %}"
+			data-send_url="{% url "send" label %}">
+				{% trans "Send" %}
+	</button>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-4">
+
+	<h2>{% trans "Addresses" %}</h2>
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#address_modal"
+			data-is_create="True"
+			data-create_url="{% url "create_address" label %}">
+		{% trans "Create new address" %}</button>
+
+	<button class="btn btn-info" data-toggle="collapse" data-target="#address_list">{% trans "Addresses" %}</button>
+
+	<div id="address_list" class="collapse in" data-address_url="{% url "address" label %}"></div>
+
+</div>
+
+<div class="col-md-8">
+
+	<h2>{% trans "Transactions" %}</h2>
+
+	<button class="btn btn-info" data-toggle="collapse" data-target="#transactions_list">{% trans "Transactions" %}</button>
+	<div id="transactions_list" class="collapse in">
+	<table class="table">
+
+		<thead>
+		<tr>
+			<!-- <th>{% trans "Txid" %}</th> -->
+			<th>{% trans "Time" %}</th>
+			<th>{% trans "Category" %}</th>
+			<th>{% trans "Address" %}</th>
+			<th>{% trans "Amount" %}</th>
+			<th>{% trans "Confirmations" %}</th>
+			<th>{% trans "Fee" %}</th>
+		</tr>
+		</thead>
+
+		<tbody>
+		{% for tx in object_list %}
+		<tr>
+			<!-- <td>{{ tx.txid }}</td> -->
+			<td>{{ tx.time }}</td>
+			<td>{{ tx.category }}</td>
+			<td>{{ tx.address }}</td>
+			<td>{{ tx.amount|floatformat:8|intcomma }}</td>
+			<td>{{ tx.confirmations }}</td>
+			<td>{{ tx.fee|floatformat:8|intcomma }}</td>
+		</tr>
+		{% endfor %}
+		</tbody>
+
+	</table>
+	</div>
+
+</div>
+</div>
+
+{% include "address_modal.html" %}
+{% include "send_modal.html" %}
+
+<script src="{% static "js/account.js" %}"></script>
+<script src="{% static "js/send.js" %}"></script>
+
+{% endblock %}
+

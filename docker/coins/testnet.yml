@@ -1,0 +1,28 @@
+
+version: '2'
+
+services:
+
+    bitcoin:
+
+        image: kylemanna/bitcoind
+        volumes:
+            - /home/amv/trash/testnet:/data
+        command: bitcoind -testnet -printtoconsole -server -datadir=/data/btc -rpcbind=0.0.0.0 -rpcallowip=172.0.0.0/8 -rpcuser=test -rpcpassword=test -rpcport=18332
+
+    litecoin:
+
+        image: uphold/litecoind
+        volumes:
+            - /home/amv/trash/testnet:/data
+        environment:
+            - LITECOIN_DATA=/data/ltc
+        command: litecoind -testnet -printtoconsole -server -rpcbind=0.0.0.0 -rpcallowip=172.0.0.0/8 -rpcuser=test -rpcpassword=test -rpcport=19332
+
+    dash:
+
+        image: dashpay/dashd
+        volumes:
+            - /home/amv/trash/testnet:/data
+        command: dashd -testnet -printtoconsole -server -datadir=/data/dash -rpcbind=0.0.0.0 -rpcallowip=172.0.0.0/8 -rpcuser=test -rpcpassword=test -rpcport=19994
+

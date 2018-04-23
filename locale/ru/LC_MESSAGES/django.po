@@ -1,0 +1,507 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-13 00:49+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: coin/models.py:12 coin/models.py:72 pool/models.py:10
+#: templates/device_list.html:10 templates/exchange.html:20
+#: templates/pool.html:19
+msgid "Label"
+msgstr "Название"
+
+#: coin/models.py:13
+msgid "Ticker"
+msgstr "Метка"
+
+#: coin/models.py:14
+msgid "Hostname"
+msgstr "Адрес в сети Интернет"
+
+#: coin/models.py:21
+msgid "currencies"
+msgstr "валюты"
+
+#: coin/models.py:26
+msgid "Account name"
+msgstr "Название аккаунта"
+
+#: coin/models.py:27 templates/account.html:23 templates/wallets.html:23
+msgid "Balance"
+msgstr "Баланс"
+
+#: coin/models.py:33
+msgid "accounts"
+msgstr "аккаунты"
+
+#: coin/models.py:39 coin/models.py:48 templates/account.html:64
+#: templates/address_modal.html:11 templates/send_modal.html:20
+#: templates/send_modal.html:21
+msgid "Address"
+msgstr "Адрес"
+
+#: coin/models.py:43
+msgid "addresses"
+msgstr "адреса"
+
+#: coin/models.py:49
+msgid "category"
+msgstr "категория"
+
+#: coin/models.py:50
+msgid "txid"
+msgstr "индекс транзакции"
+
+#: coin/models.py:51
+msgid "time"
+msgstr "время"
+
+#: coin/models.py:52 templates/account.html:65 templates/exchange_modal.html:19
+#: templates/send_modal.html:23
+msgid "Amount"
+msgstr "Количество"
+
+#: coin/models.py:53 coin/models.py:76 templates/account.html:67
+#: templates/exchange.html:24
+msgid "Fee"
+msgstr "Вознаграждение"
+
+#: coin/models.py:54 templates/account.html:66
+msgid "Confirmations"
+msgstr "Подтверждения"
+
+#: coin/models.py:67
+msgid "transactions"
+msgstr "транзакции"
+
+#: coin/models.py:84
+msgid "exchanges"
+msgstr "обмены"
+
+#: device/models.py:9
+msgid "Device name"
+msgstr "Название устройства"
+
+#: device/models.py:10 templates/device_list.html:11
+msgid "Description"
+msgstr "Описание"
+
+#: device/models.py:11 templates/device_list.html:12
+msgid "Part index"
+msgstr "Часть устройства"
+
+#: device/models.py:12 templates/device_list.html:13
+msgid "Number of parts"
+msgstr "Количество частей"
+
+#: device/models.py:13
+#, fuzzy
+#| msgid "Prince in month"
+msgid "Earnings (month)"
+msgstr "Ежемесячная выплата ($)"
+
+#: device/models.py:14
+#, fuzzy
+#| msgid "Prince in month"
+msgid "Prince (month)"
+msgstr "Ежемесячная выплата ($)"
+
+#: device/models.py:22
+msgid "devices"
+msgstr "устройства"
+
+#: home/views.py:77
+msgid "Activate your account"
+msgstr "Активируйте Ваш аккаунт"
+
+#: home/views.py:113
+msgid "Thank you for your email confirmation. Now you can login your account."
+msgstr ""
+"Спасибо за подтверждение адреса электронной почты. Теперь вы можете зайти в "
+"Ваш аккаунт."
+
+#: home/views.py:117
+msgid "Activation link is invalid!"
+msgstr "Ссылка для активации аккаунта некорректна"
+
+#: pool/models.py:11 templates/pool.html:20
+msgid "Program"
+msgstr "Программа"
+
+#: pool/models.py:12 templates/pool.html:21
+msgid "Host"
+msgstr "Адрес хоста"
+
+#: pool/models.py:13 templates/pool.html:22 templates/signin_modal.html:22
+#: templates/signup_modal.html:22
+msgid "Login"
+msgstr "Логин"
+
+#: pool/models.py:14 templates/pool.html:23 templates/signin_modal.html:25
+#: templates/signup_modal.html:30
+msgid "Password"
+msgstr "Пароль"
+
+#: pool/models.py:15 templates/pool.html:24
+msgid "Args"
+msgstr "Дополнительные аргументы"
+
+#: pool/models.py:16
+msgid "Priority"
+msgstr "Приоритет"
+
+#: pool/models.py:17
+msgid "Is enable"
+msgstr "Активирован?"
+
+#: pool/models.py:18
+msgid "Is login need suffix"
+msgstr "Для входа в систему необходимо добавить к логину суффикс"
+
+#: pool/models.py:24
+msgid "pools"
+msgstr "пулы"
+
+#: templates/about.html:9 templates/base.html:25 templates/base.html:34
+#: templates/base.html:88
+msgid "CryptoMoneys"
+msgstr "КриптоДеньги"
+
+#: templates/about.html:10
+msgid "Save, exchanges, mining!"
+msgstr "Криптовалюты - управление, обмен, покупки, майнинг, заработок!"
+
+#: templates/account.html:28 templates/send_modal.html:33
+msgid "Send"
+msgstr "Отправить"
+
+#: templates/account.html:39 templates/account.html:45
+msgid "Addresses"
+msgstr "Адреса"
+
+#: templates/account.html:43
+msgid "Create new address"
+msgstr "Создать новый адрес"
+
+#: templates/account.html:53 templates/account.html:55
+msgid "Transactions"
+msgstr "Транзакции"
+
+#: templates/account.html:61
+msgid "Txid"
+msgstr "Индекс"
+
+#: templates/account.html:62
+msgid "Time"
+msgstr "Время"
+
+#: templates/account.html:63
+msgid "Category"
+msgstr "Категория"
+
+#: templates/activate.html:8
+msgid "Activate"
+msgstr "Активировать"
+
+#: templates/activation_email.txt:4
+msgid "Hi"
+msgstr "Здравствуйте"
+
+#: templates/activation_email.txt:6
+msgid "please click on the link to confirm your registration,"
+msgstr "пожалуйста, перейдите по ссылке для подтверждения аккаунта"
+
+#: templates/address_modal.html:25 templates/exchange_modal.html:26
+#: templates/send_modal.html:32 templates/signin_modal.html:35
+#: templates/signup_modal.html:41 templates/signup_modal.html:71
+msgid "Close"
+msgstr "Закрыть"
+
+#: templates/base.html:42
+msgid "My account"
+msgstr "Мой аккаунт"
+
+#: templates/base.html:47
+msgid "Change password"
+msgstr "Изменить пароль"
+
+#: templates/base.html:59
+msgid "Log out"
+msgstr "Выйти"
+
+#: templates/base.html:65 templates/signin_modal.html:36
+msgid "Sign in"
+msgstr "Войти"
+
+#: templates/base.html:66 templates/signup_modal.html:42
+msgid "Sign up"
+msgstr "Регистрация"
+
+#: templates/base.html:81 templates/wallets.html:14
+msgid "Wallet"
+msgstr "Кошелек"
+
+#: templates/base.html:82 templates/exchange_modal.html:27
+msgid "Exchange"
+msgstr "Обмен"
+
+#: templates/base.html:83
+msgid "Pool"
+msgstr "Пул"
+
+#: templates/base.html:84 templates/device.html:8
+msgid "Devices"
+msgstr "Устройства"
+
+#: templates/device.html:14
+msgid "Available devices"
+msgstr "Доступные устройства"
+
+#: templates/device_list.html:14
+msgid "Indicative earnings (month)"
+msgstr "Примерный доход (в месяц)"
+
+#: templates/device_list.html:15
+msgid "Price (month)"
+msgstr "Ежемесячная выплата"
+
+#: templates/device_list.html:16
+msgid "(Un)Subscribe"
+msgstr "Аренда"
+
+#: templates/device_list.html:32
+msgid "Unsubscribe"
+msgstr "Отказаться"
+
+#: templates/device_list.html:35
+msgid "Unsubscribe (not confirm)"
+msgstr "Отказаться (не подтверждено)"
+
+#: templates/device_list.html:39
+msgid "Subscribe"
+msgstr "Арендовать"
+
+#: templates/exchange.html:8 templates/exchange.html:14
+msgid "Exchanges"
+msgstr "Обмены"
+
+#: templates/exchange.html:21
+msgid "Currency from"
+msgstr "Исходная валюта"
+
+#: templates/exchange.html:22
+msgid "Currency to"
+msgstr "Результирующая валюта"
+
+#: templates/exchange.html:23
+msgid "Rate"
+msgstr "Курс"
+
+#: templates/pool.html:7
+#, fuzzy
+#| msgid "Pools:"
+msgid "Pools"
+msgstr "Пулы:"
+
+#: templates/pool.html:13
+msgid "Available pools"
+msgstr "Доступные пулы"
+
+#: templates/pool.html:36
+msgid "DEVICE_NAME"
+msgstr "ИМЯ_УСТРОЙСТВА"
+
+#: templates/signin_modal.html:12
+msgid "Authorization"
+msgstr "Авторизация"
+
+#: templates/signup_modal.html:12
+msgid "Register"
+msgstr "Регистрация"
+
+#: templates/signup_modal.html:24
+msgid "Beautiful username."
+msgstr "Выберите красивое имя пользователя"
+
+#: templates/signup_modal.html:26
+msgid "E-mail"
+msgstr "Адрес электронной почты"
+
+#: templates/signup_modal.html:28
+msgid "We'll never share your email with anyone else."
+msgstr "Мы ни кому не передадим Ваш адрес электронной почты."
+
+#: templates/signup_modal.html:32
+msgid "Strong password."
+msgstr "Стойкий пароль, куда без него."
+
+#: templates/signup_modal.html:54
+msgid "Success on registraion"
+msgstr "Регистрационные данные приняты"
+
+#: templates/signup_modal.html:64
+msgid "Checkout you e-mail and confirm the registration"
+msgstr "Проверьте Вашу почту и подтвердите регистрацию"
+
+#: templates/wallets.html:8
+#, fuzzy
+#| msgid "Wallets:"
+msgid "Wallets"
+msgstr "Кошельки:"
+
+#: templates/wallets.html:22
+msgid "Currency"
+msgstr "Валюта"
+
+#~ msgid "Coefficient"
+#~ msgstr "Множитель"
+
+#~ msgid "Price"
+#~ msgstr "Цена"
+
+#~ msgid "Exchanges:"
+#~ msgstr "Обмены:"
+
+#, fuzzy
+#~| msgid "Ticker"
+#~ msgid "ticker"
+#~ msgstr "Метка"
+
+#, fuzzy
+#~| msgid "Label"
+#~ msgid "label"
+#~ msgstr "Название"
+
+#~ msgid "host"
+#~ msgstr "хост"
+
+#, fuzzy
+#~| msgid "Currency from"
+#~ msgid "currency_from"
+#~ msgstr "Исходная валюта"
+
+#, fuzzy
+#~| msgid "Currency to"
+#~ msgid "currency_to"
+#~ msgstr "Результирующая валюта"
+
+#~ msgid "coef"
+#~ msgstr "коэфициент"
+
+#, fuzzy
+#~| msgid "Fee"
+#~ msgid "fee"
+#~ msgstr "Вознаграждение"
+
+#~ msgid "Balance not a number"
+#~ msgstr "Указанный баланс некорректен"
+
+#~ msgid "Bad value"
+#~ msgstr "Некорректное значение"
+
+#~ msgid "Please sign in"
+#~ msgstr "Пожалуйста, войдите в систему"
+
+#~ msgid "Your account is not activated"
+#~ msgstr "Ваш аккаунт не активирован"
+
+#~ msgid "Invalid login, please try again"
+#~ msgstr "Некорретные данные для аутентификации, пожалуйста, попробуйте снова"
+
+#~ msgid "Error in registration"
+#~ msgstr "Ошибка в процессе регистрации"
+
+#~ msgid "One of field is empty"
+#~ msgstr "Одно из обязательных полей пустое"
+
+#, fuzzy
+#~| msgid "Currency"
+#~ msgid "currency"
+#~ msgstr "Валюта"
+
+#, fuzzy
+#~| msgid "Program"
+#~ msgid "program"
+#~ msgstr "Программа"
+
+#, fuzzy
+#~| msgid "Login"
+#~ msgid "login"
+#~ msgstr "Логин"
+
+#, fuzzy
+#~| msgid "Password"
+#~ msgid "password"
+#~ msgstr "Пароль"
+
+#~ msgid "args"
+#~ msgstr "аргументы"
+
+#, fuzzy
+#~| msgid "Priority"
+#~ msgid "priority"
+#~ msgstr "Приоритет"
+
+#, fuzzy
+#~| msgid "Is enable"
+#~ msgid "is_enable"
+#~ msgstr "Активирован?"
+
+#, fuzzy
+#~| msgid "Is login need suffix"
+#~ msgid "is_login_need_suffix"
+#~ msgstr "Для входа в систему необходимо добавить к логину суффикс"
+
+#~ msgid "Account activation failed"
+#~ msgstr "Активация аккаунта завершилась ошибкой"
+
+#~ msgid "Your account is now activated!"
+#~ msgstr "Ваш аккаунт активирован!"
+
+#, fuzzy
+#~| msgid "Log out"
+#~ msgid "Log in"
+#~ msgstr "Выйти"
+
+#, fuzzy
+#~| msgid "Strong password."
+#~ msgid "Forgot password"
+#~ msgstr "Стойкий пароль, куда без него."
+
+#, fuzzy
+#~| msgid "Log out"
+#~ msgid "Logged out"
+#~ msgstr "Выйти"
+
+#, fuzzy
+#~| msgid "Password"
+#~ msgid "Password changed"
+#~ msgstr "Пароль"
+
+#~ msgid "Do exchange:"
+#~ msgstr "Обмен:"
+
+#~ msgid "Error"
+#~ msgstr "Ошибка"
+
+#~ msgid "Send:"
+#~ msgstr "Отправить:"
+
+#~ msgid "Success"
+#~ msgstr "Успех"

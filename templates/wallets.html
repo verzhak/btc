@@ -1,0 +1,46 @@
+
+{% extends "base.html" %}
+
+{% load humanize %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Wallets" %}: {{ request.user.username }}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+		
+	<h1>{% trans "Wallet" %}</h1>
+
+	<div class="table-responsive">
+	<table class="table table-striped">
+	<col width="150">
+
+		<thead>
+		<tr>
+			<th>{% trans "Currency" %}</th>
+			<th>{% trans "Balance" %}</th>
+		</tr>
+		</thead>
+
+		<tbody>
+		{% for account in object_list %}
+		<tr>
+			<td>
+				<a href="{% url "account" account.currency.label %}" class="btn btn-info btn-block">
+				<img class="img-fluid" src="{% static "img/"|add:account.currency.ticker|add:".svg" %}" style="max-width:50px"> {{ account.currency }}</a></td>
+			<td>{{ account.balance|floatformat:8 }}</td>
+		</tr>
+		{% endfor %}
+		</tbody>
+
+	</table>
+	</div>
+	
+</div>
+
+<script src="{% static "js/wallet.js" %}"></script>
+
+{% endblock %}
+

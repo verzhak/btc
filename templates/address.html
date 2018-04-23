@@ -1,0 +1,11 @@
+
+<table class="table">
+
+	<tbody>
+	{% for addr in object_list %}
+	<tr><td><a id="{{ addr.address }}" class="bootstrap-link" href="#" data-toggle="modal" data-target="#address_modal" data-is_create="False">{{ addr.address }}</a></td></tr>
+	{% endfor %}
+	</tbody>
+
+</table>
+
